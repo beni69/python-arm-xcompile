@@ -1,3 +1,4 @@
 build.log
 Python-*/
 Python-*.tar.xz
+_build/

@@ -10,7 +10,16 @@ You must have a cross-compile toolchain already set up (e.g. on Ubuntu run `sudo
 
 Assuming the build succeeds, the Python distribution will be installed in `INSTALL_DIRECTORY`.
 
-The script was tested with Python 2.7.12 under Ubuntu Xenial 16.04.
+The script was tested with Python 3.9.6 under debian running in a container *(see below)*
 
 With Python 2.7.12 cross-compiling got easier since no patching is required.
 For cross-compiling older Python version, check the python-2.7.5 branch of this repository.
+
+# using the dockerfile
+i used this script to cross-compile python for my lego ev3 robot. if you want to do the same, just build the dockerfile and run it.
+
+if you get an error about not having a python interpreter installed, you first need to compile python for x86_64 (run `make clean` and `./configure` with no flags, then `make` and `make altinstall`)
+then try again
+
+for everyone else, just use the instructions above
+
