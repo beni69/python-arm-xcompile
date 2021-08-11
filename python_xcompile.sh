@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TARGET_HOST="arm-linux-gnueabihf"
+TARGET_HOST="arm-linux-gnueabi"
 ROOT_FILESYSTEM="/usr/arm-linux-gnueabi/"
 BUILD_HOST="x86_64-linux-gnu" # find out with uname -m
-WORKING_DIRECTORY="python_xcompile"
+WORKING_DIRECTORY="_build"
 INSTALL_DIRECTORY="$WORKING_DIRECTORY/_install"
-PYTHON_VERSION="2.7.12"
+PYTHON_VERSION="3.9.6"
 SOURCE_DIRECTORY="Python-$PYTHON_VERSION"
 PYTHON_ARCHIVE="Python-$PYTHON_VERSION.tar.xz"
 ENABLE_MODULES="array cmath binascii _collections cPickle cStringIO datetime
@@ -35,7 +35,10 @@ done
 make distclean
 ./configure --host=$TARGET_HOST --build=$BUILD_HOST --prefix=$PREFIX \
     --disable-ipv6 --enable-unicode=ucs4 \
+    --enable-optimizations \
     ac_cv_file__dev_ptmx=no ac_cv_file__dev_ptc=no \
     ac_cv_have_long_long_format=yes
-make
-make install
+
+make -j$(nproc)
+make altinstall
+
