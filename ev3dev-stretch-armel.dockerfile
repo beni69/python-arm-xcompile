@@ -9,6 +9,7 @@ RUN sudo apt update && sudo apt upgrade --yes && \
   libz-dev:armel \
   tk-dev:armel \
   libsqlite3-dev:armel \
+  libreadline-dev:armel \
   liblzma-dev:armel \
   libffi-dev:armel \
   libssl-dev:armel
