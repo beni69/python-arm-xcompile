@@ -17,6 +17,7 @@ For cross-compiling older Python version, check the python-2.7.5 branch of this 
 
 # using the dockerfile
 i used this script to cross-compile python for my lego ev3 robot. if you want to do the same, just build the dockerfile and run it.
+inside the container, git clone this repo, run the script, then copy the contents of the \_install directory to the robot
 
 if you get an error about not having a python interpreter installed, you first need to compile python for x86_64 (run `make clean` and `./configure` with no flags, then `make` and `make altinstall`)
 then try again
